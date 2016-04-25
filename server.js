@@ -1,5 +1,6 @@
 const Hapi = require('hapi');
 const mongoose = require('mongoose');
+const artistRoutes = require(__dirname + '/routes/artist-routes');
 
 const port = process.env.PORT || 5000;
 
@@ -13,6 +14,8 @@ server.connection({
   host: 'localhost',
   port: port
 });
+
+server.route(artistRoutes);
 
 server.start((err) => {
   if (err) throw err;
